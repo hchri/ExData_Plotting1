@@ -1,8 +1,10 @@
 
+#reading data
 
-Sys.setenv(LANGUAGE="en")
-household_power_consumption <- read.csv("D:/coursera/ExData/ExData_Plotting1/household_power_consumption.txt", sep=";", quote="", stringsAsFactors=FALSE)
+household_power_consumption <- read.csv("household_power_consumption.txt", sep=";", quote="", stringsAsFactors=FALSE)
 
+
+#ensuring the correct format of data
 library(lubridate)
 
 
@@ -24,7 +26,8 @@ household_power_consumption$Sub_metering_3 <- as.numeric(household_power_consump
 
 png(filename = "figure/plot4.png")
 opar <- par()
-par( mfrow = c(2,2), mar =  c(5, 4, 4, 2) + 0.1)
+par( mfrow = c(2,2))
+#ensurung the correct language for weekdays abbriviations
 Sys.setlocale("LC_TIME", "UK")
 plot(household_power_consumption$Date + household_power_consumption$Time, household_power_consumption$Global_active_power, type = "l", xlab = NA, ylab = "Global Active Power (kilowatts)")
 
